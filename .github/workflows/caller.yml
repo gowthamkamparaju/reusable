@@ -1,13 +1,13 @@
-name: Build and Push Docker Image (Caller)
+name: Call Reusable Docker Build
 
 on:
   push:
     branches:
-      - main
-    
+      - main   # or whichever branch you want
+
 jobs:
   use-reusable-workflow:
-    uses: gowthamkamparaju/test/.github/workflows/docker-build-push.yml
+    uses: gowthamkamparaju/test/.github/workflows/docker-build-push.yml@main
     with:
       image_name: gowthamkamparaju/demousr
       tag: latest
