@@ -1,1 +1,15 @@
+name: Build and Push Docker Image (Caller)
 
+on:
+  push:
+    branches:
+      - main
+    
+
+jobs:
+  use-reusable-workflow:
+    uses: ./.github/workflows/docker-build-push.yml
+    with:
+      image_name: gowthamkamparaju/demousr
+      tag: latest
+      
