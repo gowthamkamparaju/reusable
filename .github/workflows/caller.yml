@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    uses: gowthamkamparaju/resuable/.github/workflows/resuable.yml@main
+    uses: gowthamkamparaju/reusable/.github/workflows/resuable.yml@main
     with:
       image-name: gowthamkamparaju/myapp   # replace with your DockerHub repo
       tag: v1.0.0
