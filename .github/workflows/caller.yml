@@ -8,7 +8,7 @@ jobs:
   build:
     uses: gowthamkamparaju/reusable/.github/workflows/reusable.yml@main
     with:
-      image-name: gowthamkamparaju/myapp   # replace with your DockerHub repo
+      image-name: gowthamkamparaju/myapp   
       tag: v1.0.0
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
