@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       image-name:
-        description: "DockerHub image name (e.g. user/repo)"
+        description: "DockerHub image name"
         required: true
         type: string
       tag:
