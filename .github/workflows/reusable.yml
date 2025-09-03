@@ -12,11 +12,21 @@ on:
         required: false
         default: "latest"
         type: string
+      cancel-old:
+        description: "Cancel old runs (true = only latest commit runs, false = queue)"
+        required: false
+        type: boolean
+        default: true
     secrets:
       DOCKER_USERNAME:
         required: true
       DOCKER_PASSWORD:
         required: true
+
+# Concurrency control here
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ inputs.cancel-old }}
 
 jobs:
   docker:
