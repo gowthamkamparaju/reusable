@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       image-name:
-        description: "DockerHub image name"
+        description: "DockerHub image name (e.g. user/repo)"
         required: true
         type: string
       tag:
@@ -23,7 +23,7 @@ on:
       DOCKER_PASSWORD:
         required: true
 
-# Concurrency control here 
+# ✅ Concurrency control
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ inputs.cancel-old }}
@@ -51,4 +51,14 @@ jobs:
           file: Dockerfile
           push: true
           tags: ${{ inputs.image-name }}:${{ inputs.tag }}
+
+  test:
+    runs-on: ubuntu-latest
+    needs: docker   # Runs only after docker job succeeds
+    steps:
+      - name: Run container for testing
+        run: |
+          docker run -d -p 5000:5000 ${{ inputs.image-name }}:${{ inputs.tag }}
+          sleep 5
+          curl -f http://localhost:5000 || exit 1
           
