@@ -10,7 +10,7 @@ jobs:
     with:
       image-name: gowthamkamparaju/myapp
       tag: v1.0.0
-      cancel-old: true   #Cancel previous 
+      cancel-old: true   #Cancel previous build
     secrets:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
