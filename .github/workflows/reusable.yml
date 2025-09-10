@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       image-name:
-        description: "DockerHub image name 
+        description: "DockerHub image name (e.g. user/repo)"
         required: true
         type: string
       tag:
@@ -54,7 +54,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    needs: docker   # Runs only after docker job succeeds
+    needs: docker   # ✅ Runs only after docker job succeeds
     steps:
       - name: Run container for testing
         run: |
