@@ -54,7 +54,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    needs: docker   # ✅ Runs only after docker job succeeds
+    needs: docker   # 
     steps:
       - name: Run container for testing
         run: |
